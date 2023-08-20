@@ -1,0 +1,183 @@
+.root {
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+.background {
+    @include center();
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shadow {
+    @include center();
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    box-shadow: inset 0px 0px 100px 50px #000;
+}
+
+.wrapper {
+    perspective: 1000px;
+    height: 100vh;
+}
+
+.main {
+    @include center();
+    transform: translateZ(180px) translate(-50% -50%);
+    z-index: 2;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.description {
+    font-size: 39px;
+    line-height: 47px;
+    text-shadow: 4px 4px 7px #000;
+    text-align: center;
+    background-image: linear-gradient(to right, #c2A686, #f0eea6, #c2A686);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    span {
+        font-size: 77px;
+        line-height: 47px;
+        vertical-align: middle;
+    }
+}
+
+.logo {
+    width: 100%;
+    max-width: 1248px;
+    margin-bottom: -80px;
+    transform: rotateX(var(--moveX)) rotateY(var(--moveY));
+}
+
+.lightSmoke {
+    @include center();
+    width: 100%;
+    z-index: -1;
+    transform: rotateX(var(--moveX)) rotateY(var(--moveY)) translate(-50%, -50%);
+}
+
+.leftBottomSmoke {
+    position: absolute;
+    width: 55%;
+    transform: translateZ(100px);
+    aspect-ratio: 1.33;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    animation: 20s linear 4s decorationAnimation infinite;
+}
+
+.rightBottomSmoke {
+    position: absolute;
+    width: 71%;
+    aspect-ratio: 1.7;
+    right: 0;
+    bottom: 0;
+    transform: translateZ(150px);
+    z-index: 2;
+    animation: 20s linear 2s decorationAnimation infinite;
+}
+
+.logoSmoke {
+    @include center();
+    width: 60%;
+    aspect-ratio: 2.77;
+    z-index: 5;
+    transform: translateZ(200px);
+    transform: rotateX(var(--moveX)) rotateY(var(--moveY)) translate(-50%, -50%);
+}
+
+.leftTopSmoke {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%;
+    aspect-ratio: 1.33;
+    transform: translateZ(100px);
+    z-index: 2;
+    animation: 20s linear 1s decorationAnimation infinite;
+}
+
+.particle {
+    position: absolute;
+    z-index: random(3) * 1;
+    transform: skewX(randomPosition(10, 45) * 1deg);
+    height: 0;
+    border-radius: 50%;
+    animation: 20s linear 0s decorationAnimation infinite;
+
+    @for $elem from 1 to 5 {
+        &:nth-child(#{$elem}) {
+            top: randomPosition(1, 40) * 1vh;
+            left: randomPosition(1, 40) * 1vw;
+            box-shadow: (random(4) * 2px) (random(4) * 2px) 6px 4px orange;
+            backdrop-filter: blur(random(100) * 1px) brightness(random(50) * 1%);
+        }
+    }
+
+    @for $elem from 5 to 10 {
+        &:nth-child(#{$elem}) {
+            top: randomPosition(1, 40) * 1vh;
+            left: randomPosition(50, 80) * 1vw;
+            box-shadow: (random(4) * 2px) (random(4) * 2px) 6px 4px orange;
+            backdrop-filter: blur(random(100) * 1px) brightness(random(50) * 1%);
+        }
+    }
+
+    @for $elem from 10 to 15 {
+        &:nth-child(#{$elem}) {
+            top: randomPosition(50, 80) * 1vh;
+            left: randomPosition(1, 40) * 1vw;
+            box-shadow: (random(4) * 2px) (random(4) * 2px) 6px 4px orange;
+            backdrop-filter: blur(random(100) * 1px) brightness(random(50) * 1%);
+        }
+    }
+
+    @for $elem from 15 to 20 {
+        &:nth-child(#{$elem}) {
+            top: randomPosition(50, 80) * 1vh;
+            left: randomPosition(50, 80) * 1vw;
+            box-shadow: (randomPosition(2, 4) * 1px) (randomPosition(1, 2) * 1px) 6px 4px orange;
+            backdrop-filter: blur(random(100) * 1px) brightness(random(50) * 1%);
+        }
+    }
+}
+
+@for $i from 1 to 20 {
+    @keyframes particle-animation-#{$i} {
+        0% {
+            opacity: 0; 
+        }
+        3% {
+            opacity: randomPosition(0.5, 0.9);
+        }
+        100% {
+            transform: translate3d((randomPosition(-500, 500) * 1px), (randomPosition(-500, 500) * 1px), randomPosition(-500, 500) * 1px);
+            opacity: 0;
+        }
+    }
+}
+
+@keyframes smokeAnimation {
+    0% {
+        transform: translateZ(150px) scale(1);
+    }
+    50% {
+        transform: translateZ(200px) scale(1.4);
+    }
+    100% {
+        transform: translateZ(150px) scale(1);
+    }
+}
