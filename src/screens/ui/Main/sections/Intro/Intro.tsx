@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import styles from './Intro.module.scss'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { LoginButton, Particle, PlayButton, Timer } from '@/widgets'
 
 export const Intro = () => {
     const sectionRef = useRef<HTMLSelectElement | null>(null)
@@ -31,14 +32,16 @@ export const Intro = () => {
             <div className={styles.main}>
                 <LazyLoadImage 
                     className={styles.logo} 
-                    src='images/logo.png' />
-                
-            <LazyLoadImage
-                className={styles.lightSmoke} 
-                src='/images/intro/lightSmoke.png' />
+                    src='images/logo.png' />    
+                <LazyLoadImage
+                    className={styles.lightSmoke} 
+                    src='/images/intro/lightSmoke.png' />
                 <p className={styles.description}>Первый Interlude <span>+</span> на клиенте Classic</p>
+                <Timer className={styles.timer} />
+                <LoginButton className={styles.login} />
             </div>
         </div>
+        <PlayButton className={styles.playButton} />
         <LazyLoadImage 
             className={styles.leftBottomSmoke}
             style={{
@@ -60,12 +63,6 @@ export const Intro = () => {
         <LazyLoadImage 
             className={styles.logoSmoke}
             src='/images/intro/logoSmoke.png' />
-        <div>
-            {Array(20).fill('').map((_, key) => (
-                <div key={key} className={styles.particle} style={{
-                    animationName: styles[`particle-animation-${key + 1}`]
-                }} />
-            ))}
-        </div>
+        <Particle />
     </section>
 }

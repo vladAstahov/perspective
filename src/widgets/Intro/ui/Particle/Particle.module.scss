@@ -1,0 +1,59 @@
+.particle {
+    position: absolute;
+    z-index: random(3) * 1;
+    transform: skewX(randomPosition(10, 45) * 1deg);
+    height: 0;
+    border-radius: 50%;
+    animation: 20s linear 0s decorationAnimation infinite;
+
+    @for $elem from 1 to 5 {
+        &:nth-child(#{$elem}) {
+            top: randomPosition(1, 40) * 1vh;
+            left: randomPosition(1, 40) * 1vw;
+            box-shadow: (random(4) * 2px) (random(4) * 2px) 6px 4px orange;
+            backdrop-filter: blur(random(100) * 1px) brightness(random(50) * 1%);
+        }
+    }
+
+    @for $elem from 5 to 10 {
+        &:nth-child(#{$elem}) {
+            top: randomPosition(1, 40) * 1vh;
+            left: randomPosition(50, 80) * 1vw;
+            box-shadow: (random(4) * 2px) (random(4) * 2px) 6px 4px orange;
+            backdrop-filter: blur(random(100) * 1px) brightness(random(50) * 1%);
+        }
+    }
+
+    @for $elem from 10 to 15 {
+        &:nth-child(#{$elem}) {
+            top: randomPosition(50, 80) * 1vh;
+            left: randomPosition(1, 40) * 1vw;
+            box-shadow: (random(4) * 2px) (random(4) * 2px) 6px 4px orange;
+            backdrop-filter: blur(random(100) * 1px) brightness(random(50) * 1%);
+        }
+    }
+
+    @for $elem from 15 to 20 {
+        &:nth-child(#{$elem}) {
+            top: randomPosition(50, 80) * 1vh;
+            left: randomPosition(50, 80) * 1vw;
+            box-shadow: (randomPosition(2, 4) * 1px) (randomPosition(1, 2) * 1px) 6px 4px orange;
+            backdrop-filter: blur(random(100) * 1px) brightness(random(50) * 1%);
+        }
+    }
+}
+
+@for $i from 1 to 20 {
+    @keyframes particle-animation-#{$i} {
+        0% {
+            opacity: 0; 
+        }
+        3% {
+            opacity: randomPosition(0.5, 0.9);
+        }
+        100% {
+            transform: translate3d((randomPosition(-500, 500) * 1px), (randomPosition(-500, 500) * 1px), randomPosition(-500, 500) * 1px);
+            opacity: 0;
+        }
+    }
+}

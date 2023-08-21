@@ -1,0 +1,156 @@
+$offset: 10px;
+$height: 20px;
+$width: 4px;
+
+.root {
+    position: relative;
+    display: flex;
+    border-radius: 21px;
+    border: 1px solid rgba(236, 216, 186, 0.43);
+    
+    span {
+        font-size: 64px;
+        padding: 5px 10px;
+        background-image: linear-gradient(to right, #c2A686, #f0eea6, #c2A686);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+}
+
+.divider {
+    @include center();
+    width: 1px;
+    height: 104px;
+    background: linear-gradient(to bottom right, #F4E3A5 0%, rgba(0, 0, 0, 0.00) 50%, rgba(235, 213, 157, 0.00) 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #F4E3A5 0%, rgba(0, 0, 0, 0.00) 50%, rgba(235, 213, 157, 0.00) 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #F4E3A5 0%, rgba(0, 0, 0, 0.00) 50%, rgba(235, 213, 157, 0.00) 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #F4E3A5 0%, rgba(0, 0, 0, 0.00) 50%, rgba(235, 213, 157, 0.00) 50%) top right / 50% 50% no-repeat;
+    animation: 3s linear 0s dividerAnimation infinite;
+}
+
+.particle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: $width;
+    height: $height;
+    background: radial-gradient(40.90% 38.80% at 53.65% 59.02%, #FFF 0%, rgba(238, 212, 162, 0.08) 100%);
+    // backdrop-filter: blur(5px);
+    animation: 6s linear 0s particleAnimation infinite;
+
+    @for $i from 1 to 6 {
+        &:nth-child(#{$i}) {
+            // animation-duration: randomPosition(3, 6) * 1s;
+            animation-delay: $i * 1.5s;
+        }
+    }
+}
+
+@keyframes particleAnimation {
+    0% {
+        opacity: 0;
+        height: $width;
+        top: -$width / 2;
+        left: $width;
+        transform: rotate(90deg);
+    }
+    5% {
+        opacity: 1;
+        height: $height;
+        top: -$offset;
+    }
+    20% {
+        opacity: 1;
+        left: 80%;
+        transform: rotate(90deg);
+    }
+    22% {
+        opacity: 0;
+        height: $width;
+        top: -($width / 2);
+    }
+    25% {
+        top: -$offset;
+        opacity: 0;
+        height: $width;
+        left: 100%;
+        transform: rotate(90deg);
+    }
+    30% {
+        top: -$offset + $height;
+        left: 100%;
+        opacity: 1;
+        transform: rotate(180deg);
+    }
+    35% {
+        opacity: 1;
+        transform: rotate(180deg);
+        height: $height;
+    }
+    49% {
+        opacity: 0;
+        height: $width;
+        transform: rotate(180deg);
+    }
+    50% {
+        top: calc(100% - $offset);
+        left: 100%;
+        transform: rotate(270deg);
+        opacity: 0;
+        height: $width;
+    }
+    55% {
+        opacity: 1;
+        height: $height;
+        left: 80%;
+    }
+    70% {
+        opacity: 1;
+        transform: rotate(270deg);
+    }
+    72% {
+        opacity: 0;
+        height: $width;
+        top: calc(100% - $width / 2);
+    }
+    75% {
+        opacity: 0;
+        left: 5%;
+        height: $width;
+        transform: rotate(360deg);
+    }
+    78% {
+        height: $width;
+        opacity: 0;
+        top: calc(90% - $offset);
+        left: -($width / 2);
+    }
+    80% {
+        // height: $height;
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+        height: $height;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        height: $width;
+        top: $height;
+        left: -($width / 2);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dividerAnimation {
+    0% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
