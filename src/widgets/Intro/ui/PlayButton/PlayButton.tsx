@@ -13,12 +13,12 @@ export const PlayButton = React.memo<PlayButtonProps>(({ className }) => {
 
         <LazyLoadImage
             className={styles.background}
-            src="/images/intro/playButton/background.svg" />      
+            src="images/intro/playButton/background.svg" />      
         <LazyLoadImage
             className={styles.light}
-            src="/images/intro/playButton/light.svg" />
+            src="images/intro/playButton/light.svg" />
         <LazyLoadImage 
             className={styles.icon}
-            src="/images/intro/playButton/icon.svg" /> 
+            src="images/intro/playButton/icon.svg" /> 
     </div>
 })

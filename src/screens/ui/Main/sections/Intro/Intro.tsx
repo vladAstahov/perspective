@@ -26,7 +26,7 @@ export const Intro = () => {
     })
 
     return <section ref={sectionRef} className={styles.root}>
-        <LazyLoadImage className={styles.background} src='/images/intro/background.png' />
+        <LazyLoadImage className={styles.background} src='images/intro/background.png' />
         <div className={styles.shadow} />
         <div className={styles.wrapper}>
             <div className={styles.main}>
@@ -35,7 +35,7 @@ export const Intro = () => {
                     src='images/logo.png' />    
                 <LazyLoadImage
                     className={styles.lightSmoke} 
-                    src='/images/intro/lightSmoke.png' />
+                    src='images/intro/lightSmoke.png' />
                 <p className={styles.description}>Первый Interlude <span>+</span> на клиенте Classic</p>
                 <Timer className={styles.timer} />
                 <LoginButton className={styles.login} />
@@ -48,22 +48,22 @@ export const Intro = () => {
             style={{
                 animationName: styles.smokeAnimation
             }}
-            src='/images/intro/leftBottomSmoke.png' />
+            src='images/intro/leftBottomSmoke.png' />
         <LazyLoadImage 
             className={styles.rightBottomSmoke}
             style={{
                 animationName: styles.smokeAnimation
             }}
-            src='/images/intro/rightBottomSmoke.png' />
+            src='images/intro/rightBottomSmoke.png' />
         <LazyLoadImage 
             className={styles.leftTopSmoke}
             style={{
                 animationName: styles.smokeAnimation
             }}
-            src='/images/intro/leftTopSmoke.png' />
+            src='images/intro/leftTopSmoke.png' />
         <LazyLoadImage 
             className={styles.logoSmoke}
-            src='/images/intro/logoSmoke.png' />
+            src='images/intro/logoSmoke.png' />
         <Particle />
     </section>
 }
