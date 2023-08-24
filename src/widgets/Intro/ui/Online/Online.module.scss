@@ -1,0 +1,46 @@
+.root {
+    position: relative;
+    width: 214px;
+    min-height: 359px;
+}
+
+.background {
+    width: 214px;
+}
+
+.cross {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 27px;
+    cursor: pointer;
+
+    transition: .3s ease;
+    transition-property: transform;
+
+    &:hover {
+        transform: scale(0.9);
+    }
+}
+
+.title {
+    @include center();
+    font-size: 24px;
+    color: #8EB684;
+    text-align: center;
+    text-shadow: 4px 4px 7px #8EB684;
+    animation: 3s linear 4s titleAnimation infinite;
+    font-family: $thirdFontFamily;
+}
+
+@keyframes titleAnimation {
+    0% {
+        text-shadow: 0px 0px 7px #8EB684;
+    }
+    50% {
+        text-shadow: 0px 0px 0px #8EB684;
+    }
+    100% {
+        text-shadow: 0px 0px 7px #8EB684;
+    }
+}

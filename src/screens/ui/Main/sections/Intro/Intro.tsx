@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import styles from './Intro.module.scss'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { LoginButton, Particle, PlayButton, Timer } from '@/widgets'
+import { LoginButton, Online, Particle, PlayButton, Timer } from '@/widgets'
 
 export const Intro = () => {
     const sectionRef = useRef<HTMLSelectElement | null>(null)
@@ -42,6 +42,7 @@ export const Intro = () => {
             </div>
         </div>
         <PlayButton className={styles.playButton} />
+        <Online className={styles.online} />
         <LazyLoadImage 
             className={styles.leftBottomSmoke}
             style={{
